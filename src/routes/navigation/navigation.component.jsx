@@ -4,7 +4,6 @@ import HeartImg from '../../assets/heart.jpg';
 
 import {
     NavigationContainer,
-    LogoContainer,
     NavLinks,
     NavLink,
   } from './navigation.styles';
@@ -13,6 +12,9 @@ import './navigation.styles';
 import { Outlet } from "react-router";
 
 const Navigation = () => {
+
+    //TODO: implement logic if user is signed in to display notification icon & SIGN OUT button instead of sign in
+
     return (
         <>
             <Header logoSrc={SkullImg} heartSrc={HeartImg} pageTitle="MourneWithMe.com" />

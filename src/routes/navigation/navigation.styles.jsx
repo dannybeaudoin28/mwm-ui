@@ -7,7 +7,7 @@ export const NavigationContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
-  backround-color: red;
+  background-color: #36454f;
 `;
 
 export const NavLinks = styled.div`
@@ -21,4 +21,6 @@ export const NavLinks = styled.div`
 export const NavLink = styled(Link)`
   padding: 10px 15px;
   cursor: pointer;
+  color: white;
+  text-decoration: none;
 `;

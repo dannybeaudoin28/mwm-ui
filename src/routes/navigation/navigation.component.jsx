@@ -1,6 +1,5 @@
-import Header from "../../components/header/Header";
+import Header from "../../components/header/Header.component";
 import SkullImg from '../../assets/skull.jpg';
-import HeartImg from '../../assets/heart.jpg';
 
 import {
     NavigationContainer,
@@ -17,10 +16,11 @@ const Navigation = () => {
 
     return (
         <>
-            <Header logoSrc={SkullImg} heartSrc={HeartImg} pageTitle="MourneWithMe.com" />
+            <Header logoSrc={SkullImg} pageTitle="MourneWithMe.com" />
                 <NavigationContainer>
                     <NavLinks>
                         <NavLink to='/'>HOME</NavLink>
+                        <NavLink to='/post'>POST</NavLink>
                         <NavLink to='/about'>ABOUT</NavLink>
                         <NavLink to='/contact'>CONTACT</NavLink>
                         <NavLink to='/auth'>SIGN IN</NavLink>

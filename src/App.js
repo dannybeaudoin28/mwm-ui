@@ -9,6 +9,7 @@ import About from './routes/about/about.component';
 import Contact from './routes/contact/contact.component';
 import Post from './routes/post/post.component';
 import SignIn from './routes/sign-in/sign-in.component';
+import AllPosts from './routes/all-posts/all-posts.component';
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
           <Route path='contact' element={<Contact />} />
           <Route path='post' element={<Post />} />
           <Route path='auth' element={<SignIn />} />
+          <Route path='posts' element={<AllPosts />} />
         </Route>
       </Routes>
   );

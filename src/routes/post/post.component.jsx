@@ -26,10 +26,25 @@ const Post = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(formValues)
-
+        //TODO: validate user input
+        //TODO: Post Request to back end ->
         //TODO: Add conditional logic if res code 200 redirect to that post else: display failure message
+        console.log(formValues)
+        submitPost(formValues);
         navigate('/posts');
+    };
+
+    const submitPost = (formValues) => {
+        fetch('http://localhost:8888/api/post-posting', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(formValues),
+        })
+        .then((res) => res.json())
+        .then((result) => console.log(result))
+        .catch((err) => console.log(err))
     };
 
     return (

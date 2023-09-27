@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import './App.css';
 import { Routes, Route } from 'react-router';
 import Home from './routes/home/home.component';

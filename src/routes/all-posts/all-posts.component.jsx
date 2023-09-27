@@ -1,7 +1,8 @@
+import { UsePostingQuery } from '../../hooks/usePostingQuery/UsePostingQuery';
 const AllPosts = () => {
     
     return (
-        <h1>View All Posts</h1>
+        <UsePostingQuery/>
     );
 };
 

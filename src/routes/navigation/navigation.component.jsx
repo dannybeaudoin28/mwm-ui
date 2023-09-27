@@ -20,6 +20,7 @@ const Navigation = () => {
                 <NavigationContainer>
                     <NavLinks>
                         <NavLink to='/'>HOME</NavLink>
+                        <NavLink to='/posts'>POSTS</NavLink>
                         <NavLink to='/post'>POST</NavLink>
                         <NavLink to='/about'>ABOUT</NavLink>
                         <NavLink to='/contact'>CONTACT</NavLink>

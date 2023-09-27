@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Content from "../../components/content/Content";
 
 const Home = () => {

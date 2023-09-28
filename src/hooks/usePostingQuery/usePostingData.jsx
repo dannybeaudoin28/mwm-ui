@@ -1,10 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios, { all } from "axios";
 
-const fetchPostings = () => {
-    return axios.get('https://localhost:8888/all-postings');
-};
-
 export const usePostingData = () => {
     const postingQuery = useQuery({
         queryKey: ["postings"],

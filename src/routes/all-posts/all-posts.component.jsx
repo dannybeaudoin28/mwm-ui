@@ -10,17 +10,17 @@ const AllPosts = () => {
         setPostingData(data.data);
     }, [data]);
 
-    useEffect(() => {
-        console.log(postingData);
-    }, [postingData])
-
     return (
         <div className='posting-preview-container'>
-            {postingData.map((post) => {
+            {(postingData !== undefined ? postingData.map((post) => {
                 return (
-                    <PostingPreview posting={post} />
-                );
-            })}
+                    <div key={post.id}>
+                        <PostingPreview posting={post} />
+                    </div>
+                )
+            })
+                : (<h1>No posts to show..</h1>)
+            )}
         </div>
     );
 };

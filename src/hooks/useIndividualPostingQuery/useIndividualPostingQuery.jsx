@@ -6,7 +6,7 @@ export const useIndividualPostingData = (id) => {
         queryKey: ["posting"],
         queryFn: async () => {
             const response = await axios.get(`http://localhost:8888/api/postings/${id}`);
-            const data = await response.data;
+            const data = await response?.data;
             return data;
         }
     })

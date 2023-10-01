@@ -7,8 +7,10 @@ import {
     FullPostTitle,
     FullPostBody,
     PostMetaData,
-    FullPostAuthor
+    FullPostAuthor,
+    ErrorMsg
 } from './full-posting.styles';
+import AddComment from "../../components/add-comment/add-comment.component";
 
 const FullPosting = (props) => {
     const [postData, setPostData] = useState('');
@@ -16,21 +18,26 @@ const FullPosting = (props) => {
     const { id } = useParams();
     const data = useIndividualPostingData(id);
 
+    if(data.isLoading) {
+        console.log('loading...');
+    }
+
     useEffect(() => {
         setPostData(data?.data);
     }, [data]);
 
     return (
         <FullPostingContainer>
-            {postData !== undefined ? (
+            {postData !== undefined && data.isSuccess ? (
                 <>
                     <FullPostAuthor>Posted by: </FullPostAuthor>
                     <FullPostTitle>{postData.postTitle}</FullPostTitle>
                     <FullPostBody>{postData.postBody}</FullPostBody>
                     <PostMetaData>Created at: {postData.postDate}</PostMetaData>
+                    <AddComment id={id}/>
                 </>
             ) : (
-                <p>Loading...</p>
+                <ErrorMsg>Loading...</ErrorMsg>
             )}
         </FullPostingContainer>
     );

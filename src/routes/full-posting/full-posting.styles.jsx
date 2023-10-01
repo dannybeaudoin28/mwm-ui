@@ -27,3 +27,8 @@ export const PostMetaData = styled.p`
     color: white;
     margin-left: 3rem;
 `
+
+export const ErrorMsg = styled.p`
+    color: white;
+    margin: 3rem;
+`

@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
-const AddComment = (id) => {
+const AddComment = ({ id }, handleCallBack) => {
     const navigate = useNavigate();
 
-    const [ formValues, setFormValues] = useState({
+    const [formValues, setFormValues] = useState({
         body: "",
     })
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        submitComment(formValues, id);
-        navigate(`/posts/posting/${id}`);
+        if (formValues.body.length > 0) {
+            submitComment(formValues, id);
+            // navigate(`/posts/`)
+            navigate(0);
+        }
     };
 
     const handleChange = (event) => {
@@ -22,8 +25,8 @@ const AddComment = (id) => {
         });
     };
 
-    const submitComment = (formValues, id ) => {
-        const postId = id.id;
+    const submitComment = (formValues, id) => {
+        const postId = id;
 
         console.log('id: ', postId);
         fetch(`http://localhost:8888/comments/post-comment/${postId}`, {
@@ -33,9 +36,9 @@ const AddComment = (id) => {
             },
             body: JSON.stringify(formValues),
         })
-        .then((res) => res.json())
-        .then((result) => console.log(result))
-        .catch((err) => console.log(err))
+            .then((res) => res.json())
+            .then((result) => console.log(result))
+            .catch((err) => console.log(err))
     };
 
     return (
@@ -46,7 +49,7 @@ const AddComment = (id) => {
             <div>
                 <form>
                     <br />
-                    <textarea name="body" onChange={handleChange}/>
+                    <textarea name="body" onChange={handleChange} />
                     <br />
                     <button type="submit" value="submit" onClick={handleSubmit}>Submit Comment</button>
                 </form>

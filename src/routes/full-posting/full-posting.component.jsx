@@ -15,27 +15,22 @@ import Comment from "../../components/comment/comment.component";
 
 const FullPosting = (props) => {
     const [postData, setPostData] = useState('');
-    const [comments, setComments] = useState(postData.comments);
+    const [comments, setComments] = useState([]);
+
+    const [isSub, setIsSub] = useState(0);
 
     const { id } = useParams();
     const data = useIndividualPostingData(id);
 
-    // const comments = data?.data.comments;
-
-
-    if(data.isLoading) {
-        console.log('loading...');
-    }
-
-    if(data.isSuccess) {
-        console.log(data)
-    }
-
     useEffect(() => {
         setPostData(data?.data);
-        console.log(data?.data);
-        setComments(data?.data.comments);
+        setComments(data?.data?.comments);
     }, [data]);
+
+    const handleCallBack = () => {
+        console.log('re-rendering')
+        setIsSub(isSub + 1);
+    };
 
     return (
         <FullPostingContainer>
@@ -45,7 +40,7 @@ const FullPosting = (props) => {
                     <FullPostTitle>{postData.postTitle}</FullPostTitle>
                     <FullPostBody>{postData.postBody}</FullPostBody>
                     <PostMetaData>Created at: {postData.postDate}</PostMetaData>
-                    <AddComment id={id}/>
+                    <AddComment handleCallBack={handleCallBack} id={id}/>
                     <br/>
                     {comments !== undefined ? comments.map(comment => {
                         return (

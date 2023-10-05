@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import {
     CommentContainer,
+    CommentContent,
+    CommentMetta,
 } from './comment.styles.jsx';
 
 const Comment = ({ comment }) => {
@@ -13,8 +15,8 @@ const Comment = ({ comment }) => {
 
     return (
         <CommentContainer>
-            <p>Response from: </p>
-            <h2>{comm.body}</h2>
+            <CommentMetta>Response from: test at {comm.commentDate}</CommentMetta>
+            <CommentContent>{comm.body}</CommentContent>
         </CommentContainer>
     )
 };

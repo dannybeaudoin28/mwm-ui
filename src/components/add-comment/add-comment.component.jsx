@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
+import {
+    TextAreaBox,
+    AddCommentContainer
+} from './add-comment.styles';
+
 const AddComment = ({ id }) => {
     const navigate = useNavigate();
 
@@ -41,19 +46,19 @@ const AddComment = ({ id }) => {
     };
 
     return (
-        <div>
+        <AddCommentContainer>
             <div>
                 <p>Write a comment below as: </p>
             </div>
             <div>
                 <form>
                     <br />
-                    <textarea name="body" onChange={handleChange} />
+                    <TextAreaBox name="body" onChange={handleChange} />
                     <br />
                     <button type="submit" value="submit" onClick={handleSubmit}>Submit Comment</button>
                 </form>
             </div>
-        </div>
+        </AddCommentContainer>
     );
 };
 

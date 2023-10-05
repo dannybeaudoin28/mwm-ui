@@ -9,6 +9,10 @@ export const FullPostingContainer = styled.div`
     border-color: #d65900;
 `
 
+export const CommentDiv = styled.div`
+    background-color: #36454f;
+`
+
 export const FullPostAuthor = styled.p`
     margin-left: 3rem;
 `

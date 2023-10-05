@@ -18,12 +18,21 @@ const FullPosting = (props) => {
     const { id } = useParams();
     const data = useIndividualPostingData(id);
 
+    const comments = data?.data.comments;
+
+
     if(data.isLoading) {
         console.log('loading...');
     }
 
+    if(data.isSuccess) {
+        console.log(data)
+    }
+
     useEffect(() => {
         setPostData(data?.data);
+        console.log(data?.data);
+        console.log('comments: ', comments);
     }, [data]);
 
     return (
@@ -35,6 +44,9 @@ const FullPosting = (props) => {
                     <FullPostBody>{postData.postBody}</FullPostBody>
                     <PostMetaData>Created at: {postData.postDate}</PostMetaData>
                     <AddComment id={id}/>
+                    {comments.map(comment => {
+                        return (<p>{comment.body}</p>)
+                    })}
                 </>
             ) : (
                 <ErrorMsg>Loading...</ErrorMsg>

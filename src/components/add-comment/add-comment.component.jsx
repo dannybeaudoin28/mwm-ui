@@ -4,10 +4,6 @@ import { useNavigate } from "react-router";
 const AddComment = (id) => {
     const navigate = useNavigate();
 
-    useEffect(() => {
-        console.log('id is: ', id);
-    }, []);
-
     const [ formValues, setFormValues] = useState({
         body: "",
     })
@@ -19,7 +15,6 @@ const AddComment = (id) => {
     };
 
     const handleChange = (event) => {
-        console.log('changing... id is: ', id)
         const { name, value } = event.target;
         setFormValues({
             ...formValues,
@@ -27,8 +22,11 @@ const AddComment = (id) => {
         });
     };
 
-    const submitComment = (formValues, id) => {
-        fetch(`http://localhost:8888/api/post-comment/${id}`, {
+    const submitComment = (formValues, id ) => {
+        const postId = id.id;
+
+        console.log('id: ', postId);
+        fetch(`http://localhost:8888/comments/post-comment/${postId}`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -48,7 +46,7 @@ const AddComment = (id) => {
             <div>
                 <form>
                     <br />
-                    <textarea name="body"/>
+                    <textarea name="body" onChange={handleChange}/>
                     <br />
                     <button type="submit" value="submit" onClick={handleSubmit}>Submit Comment</button>
                 </form>

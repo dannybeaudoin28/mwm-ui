@@ -35,7 +35,7 @@ const Post = () => {
     };
 
     const submitPost = (formValues) => {
-        fetch('http://localhost:8888/api/post-posting', {
+        fetch('http://localhost:8888/postings/post-posting', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

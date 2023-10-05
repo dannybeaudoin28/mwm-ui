@@ -11,14 +11,16 @@ import {
     ErrorMsg
 } from './full-posting.styles';
 import AddComment from "../../components/add-comment/add-comment.component";
+import Comment from "../../components/comment/comment.component";
 
 const FullPosting = (props) => {
     const [postData, setPostData] = useState('');
+    const [comments, setComments] = useState(postData.comments);
 
     const { id } = useParams();
     const data = useIndividualPostingData(id);
 
-    const comments = data?.data.comments;
+    // const comments = data?.data.comments;
 
 
     if(data.isLoading) {
@@ -32,7 +34,7 @@ const FullPosting = (props) => {
     useEffect(() => {
         setPostData(data?.data);
         console.log(data?.data);
-        console.log('comments: ', comments);
+        setComments(data?.data.comments);
     }, [data]);
 
     return (
@@ -44,9 +46,12 @@ const FullPosting = (props) => {
                     <FullPostBody>{postData.postBody}</FullPostBody>
                     <PostMetaData>Created at: {postData.postDate}</PostMetaData>
                     <AddComment id={id}/>
-                    {comments.map(comment => {
-                        return (<p>{comment.body}</p>)
-                    })}
+                    <br/>
+                    {comments !== undefined ? comments.map(comment => {
+                        return (
+                            <Comment comment={comment} />
+                        )
+                    }) : (<p>No Comments</p>)}
                 </>
             ) : (
                 <ErrorMsg>Loading...</ErrorMsg>

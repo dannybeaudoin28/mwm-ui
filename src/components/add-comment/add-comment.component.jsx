@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 
-const AddComment = ({ id }, handleCallBack) => {
+const AddComment = ({ id }) => {
     const navigate = useNavigate();
 
     const [formValues, setFormValues] = useState({
@@ -12,8 +12,7 @@ const AddComment = ({ id }, handleCallBack) => {
         event.preventDefault();
         if (formValues.body.length > 0) {
             submitComment(formValues, id);
-            // navigate(`/posts/`)
-            navigate(0);
+            navigate(0);    //refresh
         }
     };
 

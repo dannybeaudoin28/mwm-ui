@@ -27,11 +27,6 @@ const FullPosting = (props) => {
         setComments(data?.data?.comments);
     }, [data]);
 
-    const handleCallBack = () => {
-        console.log('re-rendering')
-        setIsSub(isSub + 1);
-    };
-
     return (
         <FullPostingContainer>
             {postData !== undefined && data.isSuccess ? (
@@ -40,7 +35,7 @@ const FullPosting = (props) => {
                     <FullPostTitle>{postData.postTitle}</FullPostTitle>
                     <FullPostBody>{postData.postBody}</FullPostBody>
                     <PostMetaData>Created at: {postData.postDate}</PostMetaData>
-                    <AddComment handleCallBack={handleCallBack} id={id}/>
+                    <AddComment id={id}/>
                     <br/>
                     {comments !== undefined ? comments.map(comment => {
                         return (

@@ -35,3 +35,9 @@ export const PostingPreviewBody = styled.h2`
     margin-left: 2rem;
     font-size: 1.5rem;
 `
+
+export const DeleteImage = styled.img`
+    width: 3rem;
+    height: 3rem;
+    margin-left: 40rem;
+`

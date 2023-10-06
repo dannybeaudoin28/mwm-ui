@@ -48,7 +48,7 @@ const AddComment = ({ id }) => {
     return (
         <AddCommentContainer>
             <div>
-                <p>Write a comment below as: </p>
+                <p>Write a comment below as: test</p>
             </div>
             <div>
                 <form>

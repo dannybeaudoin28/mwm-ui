@@ -5,6 +5,7 @@ export const AddCommentContainer = styled.div`
     margin-right: 2rem;
     background-color: #36454f;
     color: white;
+    border-style: solid;
 `
 
 export const TextAreaBox = styled.textarea`

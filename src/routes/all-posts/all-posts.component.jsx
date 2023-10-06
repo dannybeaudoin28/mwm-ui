@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { usePostingData } from '../../hooks/usePostingQuery/usePostingData';
+import { usePostingData } from '../../hooks/usePostingData';
 import PostingPreview from '../../components/posting-preview/posting-preview.component';
 
 const AllPosts = () => {

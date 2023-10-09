@@ -10,6 +10,15 @@ export const NavigationContainer = styled.div`
   background-color: #36454f;
 `;
 
+// export const NavigationContainer = styled('div')({
+//   height: '70px',
+//   width: '100%',
+//   display: 'flex',
+//   justifyContent: 'space - between',
+//   marginBottom: '25px',
+//   backgroundColor: '#36454f',
+// })
+
 export const NavLinks = styled.div`
   width: 100%;
   height: 100%;

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
+import { TextField } from '@mui/material';
+
 import {
     TextAreaBox,
     AddCommentContainer
@@ -53,7 +55,14 @@ const AddComment = ({ id }) => {
             <div>
                 <form>
                     <br />
-                    <TextAreaBox name="body" onChange={handleChange} />
+                    {/* <TextAreaBox name="body" onChange={handleChange} /> */}
+                    <TextField 
+                        name="body"
+                        onChange={handleChange}
+                        multiline
+                        rows={4}
+                        variant="filled"
+                    />
                     <br />
                     <button type="submit" value="submit" onClick={handleSubmit}>Submit Comment</button>
                 </form>

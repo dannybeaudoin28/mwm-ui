@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const PostingPreviewContainer = styled.div`
+    position: relative;
     height: 15rem;
     margin-left: 10rem;
     margin-right: 10rem;
@@ -37,7 +38,13 @@ export const PostingPreviewBody = styled.h2`
 `
 
 export const DeleteImage = styled.img`
-    width: 3rem;
-    height: 3rem;
-    margin-left: 40rem;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+`
+
+export const CommentCounter = styled.p`
+    margin-left: 2rem;
 `

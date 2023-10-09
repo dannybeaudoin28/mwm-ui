@@ -12,7 +12,7 @@ import FullPosting from './routes/full-posting/full-posting.component';
 
 
 const App = () => {
-
+  console.log('app running')
   return (
       <Routes>
         <Route path='/' element={<Navigation />} >

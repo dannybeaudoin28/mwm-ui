@@ -8,7 +8,6 @@ const AllPosts = () => {
 
     useEffect(() => {
         setPostingData(data.data);
-        console.log(postingData)
     }, [data]);
 
     return (

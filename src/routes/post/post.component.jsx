@@ -8,6 +8,11 @@ import {
 } from "./post.styles";
 import { useNavigate } from "react-router";
 
+import {
+    Button,
+    TextField
+} from '@mui/material';
+
 const Post = () => {
     const navigate = useNavigate();
 
@@ -59,10 +64,12 @@ const Post = () => {
                     </CreatePostLabel>
                     <br />
                     <CreatePostLabel>Post:
-                        <br /><CreatePostTextArea onChange={handleChange} name="postBody" />
+                        {/* <br /><CreatePostTextArea onChange={handleChange} name="postBody" /> */}
+                        <TextField variant="filled" multiline rows={4} c/>
                     </CreatePostLabel>
                     <br />
-                    <CreatePostSubmitBtn type="submit" value="submit" onClick={handleSubmit} >Submit Post</CreatePostSubmitBtn>
+                    {/* <CreatePostSubmitBtn type="submit" value="submit" onClick={handleSubmit}>Submit Post</CreatePostSubmitBtn> */}
+                    <Button variant="contained" type="submit" value="submit" onClick={handleSubmit}>Submit</Button>
                 </form>
             </CreatePostContainer>
         </>

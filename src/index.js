@@ -8,11 +8,20 @@ import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 
 const queryClient = new QueryClient();
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <BrowserRouter>
-    <QueryClientProvider client={queryClient}>
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//   <BrowserRouter>
+//     <QueryClientProvider client={queryClient}>
+//       <App />
+//     </QueryClientProvider>
+//   </BrowserRouter>
+// );
+
+ReactDOM.render(
+  <React.StrictMode>
+    <BrowserRouter>
       <App />
-    </QueryClientProvider>
-  </BrowserRouter>
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById('root')
 );

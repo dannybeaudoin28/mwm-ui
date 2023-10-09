@@ -10,7 +10,7 @@ import {
     FullPostAuthor,
     ErrorMsg,
     CommentDiv,
-} from './full-posting.styles';
+} from './full-posting.styles.jsx';
 import AddComment from "../../components/add-comment/add-comment.component";
 import Comment from "../../components/comment/comment.component";
 

@@ -13,9 +13,10 @@ import {
 
 import { useNavigate } from 'react-router';
 import { useDeletePosting } from "../../hooks/useDeletePosting";
+import { Box } from "@mui/material";
 
 const PostingPreview = ({ posting }) => {
-    const { id } = posting; 
+    const { id } = posting;
 
     const navigate = useNavigate();
     const deletePosting = useDeletePosting();
@@ -33,16 +34,39 @@ const PostingPreview = ({ posting }) => {
     };
 
     return (
-        <PostingPreviewContainer>
-            <div>
-                <PostingPreviewAuthor>Posted by: </PostingPreviewAuthor>
-                <DeleteImage src={deleteLogo} alt="deleteLogo" onClick={handleDelete} />
-            </div>
-            <PostingPreviewTitle onClick={handleClick}>{posting.postTitle}</PostingPreviewTitle>
-            <PostingPreviewBody>{posting.postBody}</PostingPreviewBody>
-            {commentCount > 0 ? <CommentCounter>Comments: {commentCount}</CommentCounter> 
-                              : <CommentCounter>No comments</CommentCounter>}
-        </PostingPreviewContainer>
+        <>
+            {/* <PostingPreviewContainer>
+                <div>
+                    <PostingPreviewAuthor>Posted by: </PostingPreviewAuthor>
+                    <DeleteImage src={deleteLogo} alt="deleteLogo" onClick={handleDelete} />
+                </div>
+                <PostingPreviewTitle onClick={handleClick}>{posting.postTitle}</PostingPreviewTitle>
+                <PostingPreviewBody>{posting.postBody}</PostingPreviewBody>
+                {commentCount > 0 ? <CommentCounter>Comments: {commentCount}</CommentCounter>
+                    : <CommentCounter>No comments</CommentCounter>}
+            </PostingPreviewContainer> */}
+            <Box
+                sx={{
+                    width: [450, 700, 2225],
+                    height: 300,
+                    backgroundColor: "primary.dark",
+                    opacity: [0.9, 0.8, 0.7],
+                    marginLeft: [3, 10, 20],
+                    marginRight: 'auto',
+                    border: 1,
+                    borderColor: 'red'
+                }}
+            >
+                <div>
+                    <PostingPreviewAuthor>Posted by: </PostingPreviewAuthor>
+                    <DeleteImage src={deleteLogo} alt="deleteLogo" onClick={handleDelete} />
+                </div>
+                <PostingPreviewTitle onClick={handleClick}>{posting.postTitle}</PostingPreviewTitle>
+                <PostingPreviewBody>{posting.postBody}</PostingPreviewBody>
+                {commentCount > 0 ? <CommentCounter>Comments: {commentCount}</CommentCounter>
+                    : <CommentCounter>No comments</CommentCounter>}
+            </Box>
+        </>
     );
 };
 export default PostingPreview;

@@ -51,8 +51,9 @@ const PostingPreview = ({ posting }) => {
                     height: 300,
                     backgroundColor: "primary.dark",
                     opacity: [0.9, 0.8, 0.7],
-                    marginLeft: [3, 10, 20],
-                    marginRight: 'auto',
+                    marginLeft: [3, 'auto', 'auto'],
+                    marginBottom: 3,
+                    marginRight: [3, 'auto', 'auto'],
                     border: 1,
                     borderColor: 'red'
                 }}

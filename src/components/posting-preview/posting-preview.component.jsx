@@ -47,13 +47,13 @@ const PostingPreview = ({ posting }) => {
             </PostingPreviewContainer> */}
             <Box
                 sx={{
-                    width: [450, 700, 2225],
-                    height: 300,
+                    // width: '100%',
+                    height: [350, 300, 300],
                     backgroundColor: "primary.dark",
                     opacity: [0.9, 0.8, 0.7],
-                    marginLeft: [3, 'auto', 'auto'],
+                    marginLeft: ['1rem', '2rem', '3rem'],
+                    marginRight: ['1rem', '2rem', '3rem'],
                     marginBottom: 3,
-                    marginRight: [3, 'auto', 'auto'],
                     border: 1,
                     borderColor: 'red'
                 }}

@@ -6,6 +6,7 @@ import {
     TextAreaBox,
     AddCommentContainer
 } from './add-comment.styles';
+import { TextField } from "@mui/material";
 
 const AddComment = ({ id }) => {
     const navigate = useNavigate();
@@ -54,7 +55,23 @@ const AddComment = ({ id }) => {
             <div>
                 <form>
                     <br />
-                    <TextAreaBox name="body" onChange={handleChange} />
+                    {/* <TextAreaBox name="body" onChange={handleChange} /> */}
+                    <TextField 
+                        variant="filled"
+                        type="text"
+                        onChange={handleChange}
+                        name="body"
+                        multiline
+                        rows={6}
+                        sx={{
+                            backgroundColor: 'primary.light',
+                            marginLeft: '2%',
+                            marginRight: '2%',
+                            marginBottom: 3,
+                            width: '96%',
+                            // height: '10rem',
+                        }}
+                    />
                     <br />
                     <button type="submit" value="submit" onClick={handleSubmit}>Submit Comment</button>
                 </form>

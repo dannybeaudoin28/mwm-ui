@@ -19,7 +19,7 @@ const AllPosts = () => {
                     </div>
                 )
             })
-                : (<h1>No posts to show..</h1>)
+                : (<h1>No posts to show.. Try again later</h1>)
             )}
         </div>
     );

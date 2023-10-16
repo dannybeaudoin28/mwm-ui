@@ -35,14 +35,14 @@ export const PostingPreviewBody = styled.h2`
     color: white;
     margin-left: 2rem;
     font-size: 1.5rem;
+    width: 30rem;
 `
 
 export const DeleteImage = styled.img`
     width: 2rem;
-    height: 2rem;
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
+    position: relative;
+    display: none;
+    marginRight: 1rem;
 `
 
 export const CommentCounter = styled.p`

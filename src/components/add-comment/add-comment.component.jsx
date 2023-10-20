@@ -6,7 +6,7 @@ import {
     TextAreaBox,
     AddCommentContainer
 } from './add-comment.styles';
-import { TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 
 const AddComment = ({ id }) => {
     const navigate = useNavigate();
@@ -56,7 +56,7 @@ const AddComment = ({ id }) => {
                 <form>
                     <br />
                     {/* <TextAreaBox name="body" onChange={handleChange} /> */}
-                    <TextField 
+                    <TextField
                         variant="filled"
                         type="text"
                         onChange={handleChange}
@@ -73,7 +73,16 @@ const AddComment = ({ id }) => {
                         }}
                     />
                     <br />
-                    <button type="submit" value="submit" onClick={handleSubmit}>Submit Comment</button>
+                        <Button
+                            type="submit"
+                            value="submit"
+                            variant="contained"
+                            style={{
+                                position: 'relative',
+                                right: '0rem'
+                            }}
+                            onClick={handleSubmit}>Submit Comment
+                        </Button>
                 </form>
             </div>
         </AddCommentContainer>

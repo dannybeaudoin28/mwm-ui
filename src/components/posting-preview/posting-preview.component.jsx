@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import deleteLogo from '../../assets/delete.svg';
 
 import {
-    PostingPreviewContainer,
+    Container,
     PostingPreviewBody,
     PostingPreviewTitle,
     PostingPreviewAuthor,
@@ -22,6 +22,8 @@ const PostingPreview = ({ posting }) => {
     const deletePosting = useDeletePosting();
     const [commentCount, setCommentCount] = useState(posting.comments.length);
 
+    const devWidth = window.screen.width * .98;
+
     const handleClick = () => {
         console.log(posting)
         navigate(`/posts/posting/${posting.id}`, { replace: true }, { postId: posting.id });
@@ -34,7 +36,7 @@ const PostingPreview = ({ posting }) => {
     };
 
     return (
-        <>
+        <Container className="container">
             {/* <PostingPreviewContainer>
                 <div>
                     <PostingPreviewAuthor>Posted by: </PostingPreviewAuthor>
@@ -48,11 +50,12 @@ const PostingPreview = ({ posting }) => {
             <Box
                 sx={{
                     // width: '100%',
-                    height: [350, 300, 300],
+                    height: 'auto',
+                    width: '100%',
                     backgroundColor: "primary.dark",
                     opacity: [0.9, 0.8, 0.7],
-                    marginLeft: ['1rem', '2rem', '3rem'],
-                    marginRight: ['1rem', '2rem', '3rem'],
+                    marginLeft: ['1', '2', '3'],
+                    marginRight: 'auto',
                     marginBottom: 3,
                     border: 1,
                     borderColor: 'red'
@@ -67,7 +70,7 @@ const PostingPreview = ({ posting }) => {
                 {commentCount > 0 ? <CommentCounter>Comments: {commentCount}</CommentCounter>
                     : <CommentCounter>No comments</CommentCounter>}
             </Box>
-        </>
+        </Container>
     );
 };
 export default PostingPreview;

@@ -5,7 +5,7 @@ import {
     NavigationContainer,
     NavLinks,
     NavLink,
-  } from './navigation.styles';
+} from './navigation.styles';
 
 import './navigation.styles';
 import { Outlet } from "react-router";
@@ -29,7 +29,7 @@ import { Outlet } from "react-router";
 //                 </NavigationContainer>
 //                 <Outlet /> */}
 
-            
+
 //         </>
 //         // <>
 //         //     <Header logoSrc={SkullImg} pageTitle="MourneWithMe.com" />
@@ -44,7 +44,7 @@ import { Outlet } from "react-router";
 //         //             </NavLinks>
 //         //         </div>
 //         //         <Outlet />
-            
+
 //         // </>
 
 //     )
@@ -70,93 +70,105 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 const drawerWidth = 240;
-const navItems = ['Home', 'Posts', 'Post', "ABOUT", "CONTACT", "AUTH"];
+const navItems = ['home', 'posts', 'post', "about", "contact", "auth"];
 
 function Navigation(props) {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+    const { window } = props;
+    const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
+    const handleDrawerToggle = () => {
+        setMobileOpen((prevState) => !prevState);
+    };
 
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MourneWithMe
-      </Typography>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item.toUpperCase()} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
+    const drawer = (
+        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+            <Typography variant="h6" sx={{ my: 2 }}>
+                MourneWithMe
+            </Typography>
+            <Divider />
+            <List>
+                <NavLinks>
+                    {navItems.map((item) => (
+                        <ListItem key={item} disablePadding>
+                            <ListItemButton sx={{ textAlign: 'center' }}>
+                                <NavLink to={'/' + item}>
+                                    <ListItemText primary={item.toUpperCase()} />
+                                </NavLink>
+                            </ListItemButton>
+                        </ListItem>
+                    ))}
+                </NavLinks>
+            </List>
+        </Box>
+    );
 
-  const container = window !== undefined ? () => window().document.body : undefined;
+    const container = window !== undefined ? () => window().document.body : undefined;
 
-  return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar component="nav">
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            menu
-          </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            MourneWithMe
-          </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
-                {item}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <nav>
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </nav>
-    </Box>
-  );
+    return (
+        <Box sx={{ display: 'flex' }}>
+            <CssBaseline />
+            <AppBar component="nav">
+                <Toolbar>
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        edge="start"
+                        onClick={handleDrawerToggle}
+                        sx={{ mr: 2, display: { sm: 'none' } }}
+                    >
+                        menu
+                    </IconButton>
+                    <Typography
+                        variant="h6"
+                        component="div"
+                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                    >
+                        MourneWithMe
+                    </Typography>
+                    <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                        {navItems.map((item) => (
+                            <NavLinks>
+                                <NavLink to={'/' + item}>
+                                    <Button key={item} sx={{ color: '#fff' }}>
+                                        {item}
+                                    </Button>
+                                </NavLink>
+                            </NavLinks>
+                        ))}
+                    </Box>
+                </Toolbar>
+            </AppBar>
+            <nav>
+                <Drawer
+                    container={container}
+                    variant="temporary"
+                    open={mobileOpen}
+                    onClose={handleDrawerToggle}
+                    ModalProps={{
+                        keepMounted: true, // Better open performance on mobile.
+                    }}
+                    sx={{
+                        display: { xs: 'block', sm: 'none' },
+                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                    }}
+                >
+                    {drawer}
+                </Drawer>
+            </nav>
+            <Box component="main" sx={{ p: 3 }}>
+                <Toolbar />
+                <Outlet/>
+            </Box>
+        </Box>
+    );
 }
 
 Navigation.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
+    /**
+     * Injected by the documentation to work in an iframe.
+     * You won't need it on your project.
+     */
+    window: PropTypes.func,
 };
 
 export default Navigation;
